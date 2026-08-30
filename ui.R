@@ -25,7 +25,7 @@ navbarPage(title = div(img(src="compoundtrail-crop.png", width = "45%")),
                                       conditionalPanel(condition = "output.permissionsGen",
                                                        
                                       card(
-                                        selectInput("genType", h5("Barcode Type"), choices = list("Mosaic","Custom", "Delivery")),
+                                        selectInput("genType", h5("Barcode Type"), choices = list("Registered","Custom", "Delivery")),
                                         
                                         textAreaInput("cmCmpds", "Sample Barcode(s)", height = "250px"),
                                         card(uiOutput("numplates")),
@@ -81,7 +81,7 @@ navbarPage(title = div(img(src="compoundtrail-crop.png", width = "45%")),
                  card(
                    textInput("barcodedel", h5("Sample Barcode", fa(name = "barcode"))),
                    
-                 actionButton("submit2", "Delivered (CM)", class = "btn btn-info"),
+                 actionButton("submit2", "Delivered", class = "btn btn-info"),
                  hidden(
                    div(id = "submitmsg2", "Submitted",
                      actionLink("addanother2","Submit another"))
@@ -98,8 +98,8 @@ navbarPage(title = div(img(src="compoundtrail-crop.png", width = "45%")),
                     selectInput("formulation", h5("Registerd or Custom Barcode"), choices = list("Registered","Custom")),
                     
                         conditionalPanel(condition = "input.formulation == 'Registered'",
-                        h5("Mosaic Info", align = "center"),
-                                         tableOutput("amtMosaic")),
+                        h5("Inventory Info", align = "center"),
+                                         tableOutput("amtInventory")),
                         conditionalPanel(condition = "input.formulation == 'Custom'",
                                          uiOutput("LabName"),
                                          numericInput("AmountExt","Amount (mg)",0)))## Close card
